@@ -1,0 +1,21 @@
+{
+    "name": "jiinx/slim3-base",
+    "type": "project",
+    "description": "slim3, twig, medoo, monolog, dotenv",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "s3\\": "src"
+        }
+    },
+    "require": {
+        "ext-pdo": "*",
+
+        "slim/slim": "^3.12",
+        "slim/twig-view": "^2.5",
+
+        "catfan/medoo": "^1.7",
+        "monolog/monolog": "^2.0",
+        "vlucas/phpdotenv": "^3.4"
+    }
+}
