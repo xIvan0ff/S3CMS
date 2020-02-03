@@ -13,14 +13,14 @@
     }
 
     // Slim Framework Settings
-    $settings = include_once __DIR__.'/conf/settings.php';
+    $settings = include_once __DIR__.'/config/settings.php';
     $app = new App($settings);
 
     // Dependencies
-    require_once __DIR__.'/conf/dependencies.php';
+    require_once __DIR__.'/config/dependencies.php';
 
     // Middleware
-    require_once __DIR__.'/conf/middleware.php';
+    require_once __DIR__.'/config/middleware.php';
 
     // Routes
     require_once 'routes.php';
