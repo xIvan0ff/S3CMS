@@ -1,11 +1,28 @@
 <?php
 
+    /**
+     * SHIFTED 3 FRAMEWORK.
+     *
+     * File Description:
+     * This is the Dependency loader for the Framework.
+     *
+     * WARNING::  Unless you know what you are doing; we do not recommend changing these settings.
+     * Buyer beware; you have been warned!
+     *
+     */
+
     use Slim\Http\Environment;
-    use Slim\Views\Twig;
+use Slim\Http\Uri;
+use Slim\Views\Twig;
     use Slim\Views\TwigExtension;
 
     $container = $app->getContainer();
 
+    /**
+     * @param $c
+     * @return PDO
+     */
+    // Database Container
     $container['db'] = function ($c) {
         $db = $c['settings']['db'];
         switch ($db['dsn']) {
@@ -23,14 +40,20 @@
         return $pdo;
     };
 
-    /* For later use or build into App */
+
+    /**
+     * @param $c
+     * @return mixed|Twig
+     */
+    // Twig View Container
     $container['view'] = function ($c) {
         $view = $c['settings']['twig'];
 
         $view = new Twig(['settings']['twig']);
         $router = $c->get('router');
-        $uri = \Slim\Http\Uri::createFromEnvironment(new Environment($_SERVER));
+        $uri = Uri::createFromEnvironment(new Environment($_SERVER));
         $view->addExtension(new TwigExtension($router, $uri));
 
         return $view;
     };
+

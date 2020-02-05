@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eae78da5319b244d51061aa8139f67d6",
+    "content-hash": "666b11fa2454b8cafcd20362e38eeb17",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -811,6 +811,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-pdo": "*"
+    },
     "platform-dev": []
 }
