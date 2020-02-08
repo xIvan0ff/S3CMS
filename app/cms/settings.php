@@ -12,21 +12,14 @@
 
     define('CMS_ROOT', __DIR__);
 
+    define('MOD', dirname(CMS_ROOT));
+
     // CMS Routes
     require_once 'routes.php';
 
     return [
         'settings' => [
-            'displayErrorDetails' => getenv('APP_DEBUG') === 'true' ? true : false, // set to false in production
-            'addContentLengthHeader' => false,
 
-            // Twig Template Settings
-            'view' => [
-                'path' => CMS_ROOT . '/Templates',
-                'cache' => APP_ROOT . '/var/cache/twig',
-                'debug' => true,
-                'auto_reload' => true,
-            ],
 
             // Database Settings
             'cms' => [

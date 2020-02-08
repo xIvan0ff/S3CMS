@@ -1,0 +1,52 @@
+{# Base Template File #}
+
+{% set randomString = [] %}
+{% set alpha = 'abcdefghijklmnopqrstuvwxyz' %}
+{% set nums = '0123456789' %}
+
+{% for i in 1..10 %}
+    {% set char = random(alpha ~ alpha|upper ~ nums) %}
+    {% set randomString = randomString|merge([char]) %}
+{% endfor %}
+{% set randomString = randomString|join %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/kickstart.css?{{ randomString }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="style.css?{{ randomString }}" media="all" />
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/kickstart.js"></script>
+
+</head>
+<body>
+    <div id="nav">
+        {% block nav %}{% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="clear"></div>
+</body>
+<footer>
+    {% block scripts %}{% endblock %}
+    <div id="footer">
+        {% block footer %}{% endblock %}
+        &copy; Copyright 2018–2020 Defiant Gaming Community.
+    </div>
+</footer>
+</html>
+
+
+
+
+

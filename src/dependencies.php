@@ -1,10 +1,10 @@
 <?php
 
     /**
-     * SHIFTED 3 FRAMEWORK.
+     * Shifted 3 Framework
      *
      * File Description:
-     * This is the Dependency loader for the Framework.
+     * Framework Dependency Injections (Containers)
      *
      * WARNING::  Unless you know what you are doing; we do not recommend changing these settings.
      * Buyer beware; you have been warned!
@@ -12,8 +12,8 @@
      */
 
     use Slim\Http\Environment;
-use Slim\Http\Uri;
-use Slim\Views\Twig;
+    use Slim\Http\Uri;
+    use Slim\Views\Twig;
     use Slim\Views\TwigExtension;
 
     $container = $app->getContainer();
@@ -27,8 +27,10 @@ use Slim\Views\Twig;
         $db = $c['settings']['db'];
         switch ($db['dsn']) {
             case 'mysql':
-                $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
-                    $db['user'], $db['pass']);
+                $pdo = new PDO(
+                    "mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
+                    $db['user'], $db['pass']
+                );
                 break;
             case 'sqlite':
                 $pdo = new PDO('sqlite:' . $db['dbname']);
@@ -47,9 +49,11 @@ use Slim\Views\Twig;
      */
     // Twig View Container
     $container['view'] = function ($c) {
-        $view = $c['settings']['twig'];
+        $view = new Twig(ROOT . '/templates/', [
+            'cache' => false,
+        ]);
 
-        $view = new Twig(['settings']['twig']);
+        // Instantiate and add Slim specific extension
         $router = $c->get('router');
         $uri = Uri::createFromEnvironment(new Environment($_SERVER));
         $view->addExtension(new TwigExtension($router, $uri));

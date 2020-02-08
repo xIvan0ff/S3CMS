@@ -1,19 +1,25 @@
 <?php
 
     /**
-     * SHIFTED 3 Content Management System.
+     * Shifted 3 Content Management System.
      *
-     * These are the route declarations for the CMS.
+     * File Description:
+     * Route declarations for the CMS.
+     *
      * WARNING::  Unless you know what you are doing; we do not recommend changing these settings.
      * Buyer beware; you have been warned!
      *
      */
 
+    // Defines
+
+
     // Index
-    $app->get('/', function ($request, $response) {
-        $response->write('<em>If you want a guarantee, buy a toaster!</em>');
+    $app->get(
+        '/',
+        function ($request, $response) {
+            // TODO: better way to identify /template/{sub folders} specific to application modules
+            return $this->view->render($response, 'pages/index.twig');
 
-        return $response;
-    });
-
-    /** Your settings should go down below */
+        }
+    );

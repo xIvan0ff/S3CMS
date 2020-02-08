@@ -1,9 +1,11 @@
 <?php
 
     /**
-     * SHIFTED 3 FRAMEWORK.
+     * Shifted 3 Framework
      *
-     * This is the Main Controller for Dependency Injection
+     * File Description:
+     * Main Controller for Dependency Injection (Container)
+     *
      * WARNING::  Unless you know what you are doing; we do not recommend changing these settings.
      * Buyer beware; you have been warned!
      *

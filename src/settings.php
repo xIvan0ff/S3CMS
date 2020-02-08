@@ -16,8 +16,11 @@
 
     return [
         'settings' => [
+            'displayErrorDetails' => true, // set to false in production
+            'addContentLengthHeader' => false,
+
             'project' => [
-                'name' => 'Shifted3Framework',
+                'name' => 'Shifted 3 Framework',
                 'version' => '2.1',
                 'commit_hash' => exec('git rev-parse --short HEAD'),
             ],

@@ -22,7 +22,7 @@
     // Testing Settings Array
     $app->get('/version', function ($request, $response) {
         //var_dump($this->get('settings')['version']);
-        $response->getBody()->write("<em>".$this->get('settings')['project']['name'] . ' | ' . $this->get('settings')['project']['version'] . '.' . $this->get('settings')['project']['commit_hash']."</em>");
+        $response->getBody()->write("<em>" . $this->get('settings')['project']['name'] . ' | ' . $this->get('settings')['project']['version'] . '.' . $this->get('settings')['project']['commit_hash'] . "</em>");
     });
 
 
